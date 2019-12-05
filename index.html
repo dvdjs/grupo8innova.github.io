@@ -1,0 +1,106 @@
+<!doctype HTML>
+<html>
+<script src="aframe.min.js"></script>
+<script src="aframe-ar.js"></script>
+
+<script>
+/*
+AFRAME.registerComponent('markerhandler', { 
+tick:function() {
+ if(document.querySelector('a-marker').object3D.visible == true) {
+   console.log("gogogo")
+ document.getElementById('circuito1').style.visibility = 'visible'; } 
+ else { 
+ document.getElementById('circuito1').style.visibility = 'hidden'; 
+ } } });
+ */
+</script>
+
+
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs>
+        <a-entity position="0 0 80">
+        <a-camera fov="45" user-height="0"></a-camera>
+      </a-entity>
+  
+
+	  
+
+   
+
+  	<a-marker id="circuito11" preset="kanji">
+
+                 <!-- Basic cylinder. -->
+
+  	</a-marker>
+	
+	  	<a-marker id="circuito12" preset="Hiro">
+
+                 <!-- Basic cylinder. -->
+
+  	</a-marker>
+	
+  	<a-entity camera></a-entity>
+         
+    </a-scene>
+</body>
+</html>
+
+
+<script>
+
+
+
+
+var scene = document.querySelector('a-marker');
+	 var scene = document.getElementById("circuito11"); 
+	 var scene2 = document.getElementById("circuito12"); 
+	 
+	  for (var j=0; j<10; j++) {
+	  
+	  var obj = document.createElement('a-sphere');
+	  
+	  obj.setAttribute('position',Math.random()+" 0 0");
+	  obj.setAttribute("radius","0.5");
+	  obj.setAttribute("color", "#EF2D5E" );
+	  obj.setAttribute('animation', {
+          property: 'position',
+		  from:  "0 0 0",
+          to: "20 0 0",
+		  dur:"6000",
+		  easing: "linear",
+		  delay: j*1000,
+		  loop: true
+        });
+
+	     scene.appendChild(obj);
+      
+	  }
+
+	  
+	  var cyl = document.createElement('a-cylinder');
+	  cyl.setAttribute('position',"7 0 0");
+	  cyl.setAttribute("rotation","0 0 90");
+	  cyl.setAttribute("color","cyan");
+	  cyl.setAttribute("opacity","0.3");
+	  cyl.setAttribute("material",{
+	    side: "double"
+		});
+	  cyl.setAttribute("height",'30');
+	  cyl.setAttribute("radius","0.4");
+	  
+	 	  var cyl2 = document.createElement('a-cylinder');
+	  cyl2.setAttribute('position',"7 0 0");
+	  cyl2.setAttribute("rotation","0 0 90");
+	  cyl2.setAttribute("color","cyan");
+	  cyl2.setAttribute("opacity","0.3");
+	  cyl2.setAttribute("material",{
+	    side: "double"
+		});
+	  cyl2.setAttribute("height",'30');
+	  cyl2.setAttribute("radius","0.4");
+	  
+	  scene.appendChild(cyl);
+	  scene2.appendChild(cyl2);
+
+</script>
