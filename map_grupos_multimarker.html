@@ -10,8 +10,8 @@
 	
 	const nombres = ['mkled','mkbat','mkres','mkint','mkled2','mkbat2','mkres2','mkint2']
        
-       const valores = { "mkled": 1, "mkbat": 10, "mkres": 100, "mkint": 0,
-					 "mkled": 2, "mkbat": 20, "mkres": 500, "mkint": 1}; 
+	const valores = { "mkled": 1, "mkbat": 10, "mkres": 100, "mkint": 0,
+					 "mkled2": 2, "mkbat2": 20, "mkres2": 500, "mkint2": 1}; 
 	
 	
 	function encontrado(marcador){
@@ -31,9 +31,7 @@
 	
 	sceneEl = document.querySelector('a-scene'); 
        
-       
-	
-	var elementos = nombres.map( (id)=> document.getElementById(id) )
+       var elementos = nombres.map( (id)=> document.getElementById(id) )
 	
 	elementos.forEach((elem)=>elem.addEventListener("markerFound", ()=>encontrado(elem)))
 	
