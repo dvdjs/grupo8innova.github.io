@@ -24,7 +24,7 @@
 		
 		if(elementosActuales[tipo]==null){
 			elementosActuales[tipo] = marcador
-			valoresActuales[tipo] = valor;
+			valoresActuales[tipo] = valor
 		}
 		
 		console.log('encontrado '+marcador.id +' tipo: '+marcador.getAttribute('tipo')  +' valor: ' + marcador.getAttribute('valor'));
@@ -69,15 +69,44 @@
 			var resPos = elementosActuales['resistencia'].getAttribute('position')
 			var intPos = elementosActuales['interruptor'].getAttribute('position')
 			
+			var distLedaBat = ledPos.distanceTo(batPos)
+			var distLedaRes = ledPos.distanceTo(resPos)
+			var distLedaInt = ledPos.distanceTo(intPos) 
+			var distBataRes = batPos.distanceTo(resPos)
+			var distBataInt = batPos.distanceTo(intPos) 
+			var distResaint = resPos.distanceTo(intPos) 
+			
+			console.log("Distancia led a bateria: "+distLedaBat)
+			console.log("Distancia led a resistencia: "+distLedaRes)
+			console.log("Distancia led a interruptor: "+distLedaInt)
+			console.log("Distancia bateria a resistencia: "+distBataRes)
+			console.log("Distancia bateria a interruptor: "+distBataInt)
+			console.log("Distancia interruptor a resistencia: "+distResaint)
 			
 			
-			return ( (ledPos.distanceTo(batPos) < 5)  &&
+			return (
+					( distLedaBat < 5)  &&
+					(distLedaRes < 5) &&
+					(distLedaInt < 5) &&
+					(distBataRes < 5) &&
+					(distBataInt < 5) &&
+					(distResaint < 5)
+			)
+			
+			
+			
+			
+			/*return ( (ledPos.distanceTo(batPos) < 5)  &&
 			(ledPos.distanceTo(resPos) < 5) &&
 			(ledPos.distanceTo(intPos) < 5) &&
 			(batPos.distanceTo(resPos) < 5) &&
 			(batPos.distanceTo(intPos) < 5) &&
 			(resPos.distanceTo(intPos) < 5)
-			)
+			)*/
+			
+			
+			
+			
 		
 		}
 		
@@ -114,6 +143,7 @@
 			if(Object.values(elementosActuales).includes(null) || !distanciaCorrecta()){
 				animando=!animando
 				console.log('toca parar animar')
+				elTexto.setAttribute('text','toca parar animar')
 			}
 		}
 		
@@ -122,7 +152,7 @@
 			if(!Object.values(elementosActuales).includes(null) && distanciaCorrecta() ){
 				animando=!animando
 				console.log('toca animar')
-				
+				elTexto.setAttribute('text','toca animar')
 			}
 		
 		
@@ -167,7 +197,8 @@
 			<a-asset-item id="resistencia2" src="resistencia.gltf" ></a-asset-item>
 			<a-asset-item id="interruptor2" src="interruptor.gltf" ></a-asset-item>
 		</a-assets>
-	
+		
+		
 		<a-marker id='mkled' valor='1' tipo='led' type='barcode' value='16'>
 			<a-gltf-model src="#led"  
 					      animation="property: rotation; to:360 360 0; dur: 3000; easing: linear; loop: true">
@@ -215,6 +246,7 @@
 					      animation="property: rotation; to:360 360 0; dur: 3000; easing: linear; loop: true">
 			</a-gltf-model>
 		</a-marker>
+		
 		
 		
 		<a-entity camera></a-entity>
