@@ -1,11 +1,9 @@
 <!doctype HTML>
 <html>
-<!--
 <script src="aframe.min.js"></script>
 <script src="aframe-ar.js"></script>
--->
-<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.5/aframe/build/aframe-ar.js"></script>
+
+
 
 
 
@@ -72,7 +70,7 @@
 				</a-marker>
 
 
-         <a-entity id="circuitoOn" scale="0.07 0.07 0.07" rotation="-90 0 0" position="0 -0.6 0"></a-entity>
+         <a-entity id="circuitoOn" scale="1 1 1" rotation="-90 0 0" position="0 -0.6 0"></a-entity>
 
 
 				 	<a-entity camera position=" 0 0 6"></a-entity>
@@ -169,12 +167,12 @@ Array.from(esferas).forEach(element => element.parentNode.removeChild(element));
 	      let intPos = mkintEl.getAttribute('position')
 
 
-		if ( (ledPos.distanceTo(batPos) < 7)  &&
-			(ledPos.distanceTo(resPos) < 7) &&
-			(ledPos.distanceTo(intPos) < 7) &&
-			(batPos.distanceTo(resPos) < 7) &&
-			(batPos.distanceTo(intPos) < 7) &&
-			(resPos.distanceTo(intPos) < 7)
+		if ( (ledPos.distanceTo(batPos) < 6)  &&
+			(ledPos.distanceTo(resPos) < 4) &&
+			(ledPos.distanceTo(intPos) < 4) &&
+			(batPos.distanceTo(resPos) < 4) &&
+			(batPos.distanceTo(intPos) < 4) &&
+			(resPos.distanceTo(intPos) < 4)
 			){
 
 				dur = mkbatEl.getAttribute('valor');
@@ -304,17 +302,24 @@ obj.setAttribute('animation', {
 
 		var resistor = document.createElement('a-gltf-model');
 	resistor.setAttribute("src","resistencia.gltf");
-			resistor.setAttribute("position","5.31 -0.010 0.03");
+			resistor.setAttribute("position","4.7 0.04 19.9");
 			resistor.setAttribute("scale","7 7 7");
 	resistor.setAttribute('rotation',"90 0 90");
 
 
 var interruptor = document.createElement('a-gltf-model');
 	interruptor.setAttribute("src","interruptor.gltf");
-			interruptor.setAttribute("position","0 -0.06 20.5");
+	interruptor.setAttribute("position","-1 -0.03 0.45");
 			interruptor.setAttribute("scale","2 2 2");
 	interruptor.setAttribute('rotation',"-90 0 0");
-	scene.appendChild(interruptor);
+	//scene.appendChild(interruptor);
+
+	var interruptorCer = document.createElement('a-gltf-model');
+		interruptorCer.setAttribute("src","interruptorcerrado.gltf");
+		interruptorCer.setAttribute("position","-1 -0.03 0.45");
+				interruptorCer.setAttribute("scale","2 2 2");
+		interruptorCer.setAttribute('rotation',"-90 0 0");
+		scene.appendChild(interruptorCer);
 
 var led= document.createElement('a-gltf-model');
 	led.setAttribute("src","led.gltf");
