@@ -251,12 +251,12 @@ Array.from(esferas).forEach(element => element.parentNode.removeChild(element));
 			parseInte = JSON.parse(posEjesInt);
 			ejeyInt = parseInte.y;
 
-		if ( (ledPos.distanceTo(batPos) < 6)  &&
-			(ledPos.distanceTo(resPos) < 4) &&
-			(ledPos.distanceTo(intPos) < 4) &&
-			(batPos.distanceTo(resPos) < 4) &&
-			(batPos.distanceTo(intPos) < 4) &&
-			(resPos.distanceTo(intPos) < 4) &&
+		if ( (ledPos.distanceTo(batPos) < 8)  &&
+			(ledPos.distanceTo(resPos) < 8) &&
+			(ledPos.distanceTo(intPos) < 8) &&
+			(batPos.distanceTo(resPos) < 8) &&
+			(batPos.distanceTo(intPos) < 8) &&
+			(resPos.distanceTo(intPos) < 8) &&
       (ejeXBat < ejeXLed) &&
 			(ejeyInt < ejeyRes)
 			){
